@@ -16,9 +16,10 @@ export interface IRecipient {
 
 function App() {
   const [recipients, setRecipients] = useState<IRecipient[]>([
-    { id: 1, name: "Tony", messages: [] },
-    { id: 2, name: "Steve", messages: [] },
-    { id: 3, name: "Bruce", messages: [] },
+    { id: 1, name: "Tony Startk", messages: [] },
+    { id: 2, name: "Steve Rogers", messages: [] },
+    { id: 3, name: "Bruce Banner", messages: [] },
+    { id: 4, name: "Natasha Romanoff", messages: [] },
   ]);
   const [selectedRecipientsId, setSelectedRecipientsId] = useState(
     recipients[0].id
@@ -49,7 +50,7 @@ function App() {
       <header className="App-header">
         <h3 className="text-center mt-4">Messenger App</h3>
       </header>
-      <body className="row">
+      <div className="row">
         <div className="col-3">
           <Recipients
             recipients={recipients}
@@ -60,7 +61,7 @@ function App() {
         <div className="col-9">
           <MessageBox recipient={selectedRecipient} onSend={sendMessage}></MessageBox>
         </div>
-      </body>
+      </div>
     </div>
   );
 }

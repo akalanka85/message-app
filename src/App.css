@@ -15,8 +15,22 @@
   padding-left: 16px;
 }
 
-.messages {
-  height: 400px;
+.recipient {
+  cursor: pointer;
+}
+
+.recipient:hover {
+  background-color: #282c34;
+  color: white;
+}
+
+.selected {
+  background-color: #6d6d6d;
+  color: white;
+}
+
+.messages-card {
+  height: calc(100vh - 140px);
 }
 
 .message {
@@ -26,6 +40,13 @@
   border-radius: 8px;
   text-align: end;
   margin-bottom: 14px;
+}
+
+.message-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 93%;
 }
 
 .timestamp {

@@ -20,31 +20,35 @@ const MessageBox = ({ recipient, onSend }: RecipientsProps) => {
 
   return (
     <Card>
-      <Card.Body>
+      <Card.Body className="messages-card">
         <Card.Title className="mb-4">Messeges</Card.Title>
-        <div className="messages">
-          {recipient?.messages.map((message, index) => (
-            <Message
-              key={index}
-              text={message.text}
-              timestamp={message.timestamp}
+        <div className="message-area">
+          <div className="overflow-auto">
+            {recipient?.messages.map((message, index) => (
+              <Message
+                key={index}
+                text={message.text}
+                timestamp={message.timestamp}
+              />
+            ))}
+          </div>
+          <div>
+            <textarea
+              name="message"
+              className="w-100 text-input"
+              rows={4}
+              cols={40}
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+              onKeyDown={(e) => (e.key === "Enter" ? send() : null)}
+              placeholder="Type a message..."
             />
-          ))}
-        </div>
-        <textarea
-          name="postContent"
-          className="w-100 text-input"
-          rows={4}
-          cols={40}
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}
-          onKeyDown={(e) => (e.key === "Enter" ? send() : null)}
-          placeholder="Type a message..."
-        />
-        <div className="d-flex justify-content-end">
-          <Button variant="primary" onClick={send}>
-            Send
-          </Button>
+            <div className="d-flex justify-content-end">
+              <Button variant="primary" onClick={send}>
+                Send
+              </Button>
+            </div>
+          </div>
         </div>
       </Card.Body>
     </Card>
