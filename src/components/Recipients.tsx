@@ -1,6 +1,6 @@
 import { ListGroup } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { IRecipient } from "../App";
+import { IRecipient } from "../models/IRecipient";
 
 export type RecipientsProps = {
   selectedRecipientsId: number;

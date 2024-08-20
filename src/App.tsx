@@ -1,18 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import MessageBox from "./components/MessageBox";
+import { IRecipient } from "./models/IRecipient";
 import Recipients from "./components/Recipients";
-
-export interface IMessage {
-  text: string;
-  timestamp: Date;
-}
-
-export interface IRecipient {
-  id: number;
-  name: string;
-  messages: IMessage[];
-}
+import MessageBox from "./components/MessageBox";
 
 function App() {
   const [recipients, setRecipients] = useState<IRecipient[]>([
@@ -59,7 +49,10 @@ function App() {
           ></Recipients>
         </div>
         <div className="col-9">
-          <MessageBox recipient={selectedRecipient} onSend={sendMessage}></MessageBox>
+          <MessageBox
+            recipient={selectedRecipient}
+            onSend={sendMessage}
+          ></MessageBox>
         </div>
       </div>
     </div>

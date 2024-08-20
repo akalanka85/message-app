@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import { IRecipient } from "../App";
 import Message from "./Message";
+import { IRecipient } from "../models/IRecipient";
 
 export type RecipientsProps = {
   recipient?: IRecipient;
